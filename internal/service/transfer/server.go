@@ -35,14 +35,17 @@ func ResourceServer() *schema.Resource {
 
 		CustomizeDiff: customdiff.Sequence(
 			verify.SetTagsDiff,
-			customdiff.ForceNewIfChange("endpoint_details.0.vpc_id", func(_ context.Context, old, new, meta interface{}) bool {
-				// "InvalidRequestException: Changing VpcId is not supported".
-				if old, new := old.(string), new.(string); old != "" && new != old {
-					return true
-				}
+			customdiff.ForceNewIfChange(
+				"endpoint_details.0.vpc_id",
+				func(_ context.Context, old, new, meta interface{}) bool {
+					// "InvalidRequestException: Changing VpcId is not supported".
+					if old, new := old.(string), new.(string); old != "" && new != old {
+						return true
+					}
 
-				return false
-			}),
+					return false
+				},
+			),
 		),
 
 		Schema: map[string]*schema.Schema{
@@ -101,10 +104,15 @@ func ResourceServer() *schema.Resource {
 							ConflictsWith: []string{"endpoint_details.0.vpc_endpoint_id"},
 						},
 						"vpc_endpoint_id": {
-							Type:          schema.TypeString,
-							Optional:      true,
-							Computed:      true,
-							ConflictsWith: []string{"endpoint_details.0.address_allocation_ids", "endpoint_details.0.security_group_ids", "endpoint_details.0.subnet_ids", "endpoint_details.0.vpc_id"},
+							Type:     schema.TypeString,
+							Optional: true,
+							Computed: true,
+							ConflictsWith: []string{
+								"endpoint_details.0.address_allocation_ids",
+								"endpoint_details.0.security_group_ids",
+								"endpoint_details.0.subnet_ids",
+								"endpoint_details.0.vpc_id",
+							},
 						},
 						"vpc_id": {
 							Type:          schema.TypeString,
@@ -148,7 +156,20 @@ func ResourceServer() *schema.Resource {
 				Default:      transfer.IdentityProviderTypeServiceManaged,
 				ValidateFunc: validation.StringInSlice(transfer.IdentityProviderType_Values(), false),
 			},
-
+			"identity_provider_details": {
+				Type:     schema.TypeList,
+				Optional: true,
+				MaxItems: 1,
+				Elem: &schema.Resource{
+					Schema: map[string]*schema.Schema{
+						"function": {
+							Type:         schema.TypeString,
+							Optional:     true,
+							ValidateFunc: validation.NoZeroValues,
+						},
+					},
+				},
+			},
 			"invocation_role": {
 				Type:         schema.TypeString,
 				Optional:     true,
@@ -237,6 +258,12 @@ func resourceServerCreate(d *schema.ResourceData, meta interface{}) error {
 		input.IdentityProviderType = aws.String(v.(string))
 	}
 
+	if v, ok := d.GetOk("identity_provider_details"); ok {
+		input.IdentityProviderDetails = expandTransferIdentityProviderDetails(
+			v.([]interface{})[0].(map[string]interface{}),
+		)
+	}
+
 	if v, ok := d.GetOk("invocation_role"); ok {
 		if input.IdentityProviderDetails == nil {
 			input.IdentityProviderDetails = &transfer.IdentityProviderDetails{}
@@ -271,7 +298,6 @@ func resourceServerCreate(d *schema.ResourceData, meta interface{}) error {
 
 	log.Printf("[DEBUG] Creating Transfer Server: %s", input)
 	output, err := conn.CreateServer(input)
-
 	if err != nil {
 		return fmt.Errorf("error creating Transfer Server: %w", err)
 	}
@@ -339,12 +365,17 @@ func resourceServerRead(d *schema.ResourceData, meta interface{}) error {
 		securityGroupIDs := make([]*string, 0)
 
 		// Security Group IDs are not returned for VPC endpoints.
-		if aws.StringValue(output.EndpointType) == transfer.EndpointTypeVpc && len(output.EndpointDetails.SecurityGroupIds) == 0 {
+		if aws.StringValue(output.EndpointType) == transfer.EndpointTypeVpc &&
+			len(output.EndpointDetails.SecurityGroupIds) == 0 {
 			vpcEndpointID := aws.StringValue(output.EndpointDetails.VpcEndpointId)
 			output, err := tfec2.FindVPCEndpointByID(meta.(*conns.AWSClient).EC2Conn, vpcEndpointID)
-
 			if err != nil {
-				return fmt.Errorf("error reading Transfer Server (%s) VPC Endpoint (%s): %w", d.Id(), vpcEndpointID, err)
+				return fmt.Errorf(
+					"error reading Transfer Server (%s) VPC Endpoint (%s): %w",
+					d.Id(),
+					vpcEndpointID,
+					err,
+				)
 			}
 
 			for _, group := range output.Groups {
@@ -377,7 +408,7 @@ func resourceServerRead(d *schema.ResourceData, meta interface{}) error {
 
 	tags := KeyValueTags(output.Tags).IgnoreAWS().IgnoreConfig(ignoreTagsConfig)
 
-	//lintignore:AWSR002
+	// lintignore:AWSR002
 	if err := d.Set("tags", tags.RemoveDefaultConfig(defaultTagsConfig).Map()); err != nil {
 		return fmt.Errorf("error setting tags: %w", err)
 	}
@@ -484,13 +515,22 @@ func resourceServerUpdate(d *schema.ResourceData, meta interface{}) error {
 
 				log.Printf("[DEBUG] Updating VPC Endpoint: %s", input)
 				if _, err := conn.ModifyVpcEndpoint(input); err != nil {
-					return fmt.Errorf("error updating Transfer Server (%s) VPC Endpoint (%s): %w", d.Id(), vpcEndpointID, err)
+					return fmt.Errorf(
+						"error updating Transfer Server (%s) VPC Endpoint (%s): %w",
+						d.Id(),
+						vpcEndpointID,
+						err,
+					)
 				}
 
 				_, err := tfec2.WaitVPCEndpointAvailable(conn, vpcEndpointID, tfec2.VPCEndpointCreationTimeout)
-
 				if err != nil {
-					return fmt.Errorf("error waiting for Transfer Server (%s) VPC Endpoint (%s) to become available: %w", d.Id(), vpcEndpointID, err)
+					return fmt.Errorf(
+						"error waiting for Transfer Server (%s) VPC Endpoint (%s) to become available: %w",
+						d.Id(),
+						vpcEndpointID,
+						err,
+					)
 				}
 			}
 		}
@@ -597,7 +637,8 @@ func resourceServerUpdate(d *schema.ResourceData, meta interface{}) error {
 func resourceServerDelete(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*conns.AWSClient).TransferConn
 
-	if d.Get("force_destroy").(bool) && d.Get("identity_provider_type").(string) == transfer.IdentityProviderTypeServiceManaged {
+	if d.Get("force_destroy").(bool) &&
+		d.Get("identity_provider_type").(string) == transfer.IdentityProviderTypeServiceManaged {
 		input := &transfer.ListUsersInput{
 			ServerId: aws.String(d.Id()),
 		}
@@ -610,7 +651,6 @@ func resourceServerDelete(d *schema.ResourceData, meta interface{}) error {
 
 			for _, user := range page.Users {
 				err := transferUserDelete(conn, d.Id(), aws.StringValue(user.UserName))
-
 				if err != nil {
 					log.Printf("[ERROR] %s", err)
 					deletionErrs = multierror.Append(deletionErrs, err)
@@ -621,7 +661,6 @@ func resourceServerDelete(d *schema.ResourceData, meta interface{}) error {
 
 			return !lastPage
 		})
-
 		if err != nil {
 			deletionErrs = multierror.Append(deletionErrs, fmt.Errorf("error listing Transfer Users: %w", err))
 		}
@@ -685,7 +724,10 @@ func expandTransferEndpointDetails(tfMap map[string]interface{}) *transfer.Endpo
 	return apiObject
 }
 
-func flattenTransferEndpointDetails(apiObject *transfer.EndpointDetails, securityGroupIDs []*string) map[string]interface{} {
+func flattenTransferEndpointDetails(
+	apiObject *transfer.EndpointDetails,
+	securityGroupIDs []*string,
+) map[string]interface{} {
 	if apiObject == nil {
 		return nil
 	}
@@ -715,6 +757,20 @@ func flattenTransferEndpointDetails(apiObject *transfer.EndpointDetails, securit
 	}
 
 	return tfMap
+}
+
+func expandTransferIdentityProviderDetails(tfMap map[string]interface{}) *transfer.IdentityProviderDetails {
+	if tfMap == nil {
+		return nil
+	}
+
+	apiObject := &transfer.IdentityProviderDetails{}
+
+	if v, ok := tfMap["function"].(string); ok && v != "" {
+		apiObject.Function = aws.String(v)
+	}
+
+	return apiObject
 }
 
 func stopTransferServer(conn *transfer.Transfer, serverID string, timeout time.Duration) error {
@@ -760,7 +816,11 @@ func updateTransferServer(conn *transfer.Transfer, input *transfer.UpdateServerI
 	err := resource.Retry(tfec2.VPCEndpointCreationTimeout, func() *resource.RetryError {
 		_, err := conn.UpdateServer(input)
 
-		if tfawserr.ErrMessageContains(err, transfer.ErrCodeConflictException, "VPC Endpoint state is not yet available") {
+		if tfawserr.ErrMessageContains(
+			err,
+			transfer.ErrCodeConflictException,
+			"VPC Endpoint state is not yet available",
+		) {
 			return resource.RetryableError(err)
 		}
 
