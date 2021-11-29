@@ -8,9 +8,9 @@ import (
 	"github.com/aws/aws-sdk-go/service/directoryservice"
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/flex"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
 )
 
 func DataSourceDirectory() *schema.Resource {

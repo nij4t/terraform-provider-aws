@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	tfssm "github.com/hashicorp/terraform-provider-aws/internal/service/ssm"
+	tfssm "github.com/nij4t/terraform-provider-aws/internal/service/ssm"
 )
 
 func testResourcePatchGroupStateDataV0() map[string]interface{} {

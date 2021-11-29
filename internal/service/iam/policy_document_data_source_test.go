@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/endpoints"
 	"github.com/aws/aws-sdk-go/service/iam"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
 )
 
 func TestAccIAMPolicyDocumentDataSource_basic(t *testing.T) {
@@ -223,7 +223,7 @@ func TestAccIAMPolicyDocumentDataSource_duplicateSid(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/10777
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/10777
 func TestAccIAMPolicyDocumentDataSource_StatementPrincipalIdentifiers_stringAndSlice(t *testing.T) {
 	dataSourceName := "data.aws_iam_policy_document.test"
 
@@ -242,7 +242,7 @@ func TestAccIAMPolicyDocumentDataSource_StatementPrincipalIdentifiers_stringAndS
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/10777
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/10777
 func TestAccIAMPolicyDocumentDataSource_StatementPrincipalIdentifiers_multiplePrincipals(t *testing.T) {
 	dataSourceName := "data.aws_iam_policy_document.test"
 

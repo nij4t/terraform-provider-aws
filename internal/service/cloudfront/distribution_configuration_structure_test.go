@@ -7,8 +7,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/cloudfront"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tfcloudfront "github.com/hashicorp/terraform-provider-aws/internal/service/cloudfront"
+	"github.com/nij4t/terraform-provider-aws/internal/flex"
+	tfcloudfront "github.com/nij4t/terraform-provider-aws/internal/service/cloudfront"
 )
 
 func defaultCacheBehaviorConf() map[string]interface{} {

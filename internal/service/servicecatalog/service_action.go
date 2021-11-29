@@ -10,9 +10,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfiam "github.com/hashicorp/terraform-provider-aws/internal/service/iam"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfiam "github.com/nij4t/terraform-provider-aws/internal/service/iam"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 func ResourceServiceAction() *schema.Resource {

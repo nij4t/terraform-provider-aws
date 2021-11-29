@@ -9,10 +9,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfamplify "github.com/hashicorp/terraform-provider-aws/internal/service/amplify"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfamplify "github.com/nij4t/terraform-provider-aws/internal/service/amplify"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 func testAccWebhook_basic(t *testing.T) {

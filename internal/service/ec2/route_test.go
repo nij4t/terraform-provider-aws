@@ -9,10 +9,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfec2 "github.com/nij4t/terraform-provider-aws/internal/service/ec2"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 // IPv4 to Internet Gateway.
@@ -1436,7 +1436,7 @@ func TestAccEC2Route_ipv4ToVPCEndpoint(t *testing.T) {
 	})
 }
 
-// https://github.com/hashicorp/terraform-provider-aws/issues/11455.
+// https://github.com/nij4t/terraform-provider-aws/issues/11455.
 func TestAccEC2Route_localRoute(t *testing.T) {
 	var routeTable ec2.RouteTable
 	var vpc ec2.Vpc

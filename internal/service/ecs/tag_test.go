@@ -8,9 +8,9 @@ import (
 	"github.com/aws/aws-sdk-go/service/ecs"
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfecs "github.com/hashicorp/terraform-provider-aws/internal/service/ecs"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfecs "github.com/nij4t/terraform-provider-aws/internal/service/ecs"
 )
 
 func TestAccECSTag_basic(t *testing.T) {
@@ -62,7 +62,7 @@ func TestAccECSTag_disappears(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/11951
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/11951
 func TestAccECSTag_ResourceARN_batchComputeEnvironment(t *testing.T) {
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
 	resourceName := "aws_ecs_tag.test"

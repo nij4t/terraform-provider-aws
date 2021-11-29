@@ -15,9 +15,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfelasticsearch "github.com/hashicorp/terraform-provider-aws/internal/service/elasticsearch"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfelasticsearch "github.com/nij4t/terraform-provider-aws/internal/service/elasticsearch"
 )
 
 func TestAccElasticsearchDomain_basic(t *testing.T) {
@@ -1043,7 +1043,7 @@ func TestAccElasticsearchDomain_UpdateVolume_type(t *testing.T) {
 		}})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/13867
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/13867
 func TestAccElasticsearchDomain_WithVolumeType_missing(t *testing.T) {
 	var domain elasticsearch.ElasticsearchDomainStatus
 	resourceName := "aws_elasticsearch_domain.test"

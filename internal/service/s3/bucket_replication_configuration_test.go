@@ -11,10 +11,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfs3 "github.com/hashicorp/terraform-provider-aws/internal/service/s3"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfs3 "github.com/nij4t/terraform-provider-aws/internal/service/s3"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func TestAccS3BucketReplicationConfiguration_basic(t *testing.T) {
@@ -355,7 +355,7 @@ func TestAccS3BucketReplicationConfiguration_configurationRuleDestinationAccessC
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/12480
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/12480
 func TestAccS3BucketReplicationConfiguration_configurationRuleDestinationAddAccessControlTranslation(t *testing.T) {
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
 	callerIdentityDataSourceName := "data.aws_caller_identity.current"

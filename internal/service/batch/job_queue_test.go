@@ -12,9 +12,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfbatch "github.com/hashicorp/terraform-provider-aws/internal/service/batch"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfbatch "github.com/nij4t/terraform-provider-aws/internal/service/batch"
 )
 
 func TestAccBatchJobQueue_basic(t *testing.T) {
@@ -72,7 +72,7 @@ func TestAccBatchJobQueue_disappears(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/8083
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/8083
 func TestAccBatchJobQueue_ComputeEnvironments_externalOrderUpdate(t *testing.T) {
 	var jobQueue1 batch.JobQueueDetail
 	resourceName := "aws_batch_job_queue.test"

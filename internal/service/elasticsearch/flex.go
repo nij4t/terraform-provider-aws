@@ -4,7 +4,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	elasticsearch "github.com/aws/aws-sdk-go/service/elasticsearchservice"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
+	"github.com/nij4t/terraform-provider-aws/internal/flex"
 )
 
 func expandCognitoOptions(c []interface{}) *elasticsearch.CognitoOptions {

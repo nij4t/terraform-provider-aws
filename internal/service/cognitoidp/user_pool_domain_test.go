@@ -12,9 +12,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfcognitoidp "github.com/hashicorp/terraform-provider-aws/internal/service/cognitoidp"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfcognitoidp "github.com/nij4t/terraform-provider-aws/internal/service/cognitoidp"
 )
 
 func TestAccCognitoIDPUserPoolDomain_basic(t *testing.T) {
@@ -69,7 +69,7 @@ func TestAccCognitoIDPUserPoolDomain_custom(t *testing.T) {
 					testAccCheckUserPoolDomainExists(resourceName),
 					acctest.CheckResourceAttrAccountID(resourceName, "aws_account_id"),
 					resource.TestCheckResourceAttrPair(resourceName, "certificate_arn", acmCertificateResourceName, "arn"),
-					//lintignore:AWSAT001 // Reference: https://github.com/hashicorp/terraform-provider-aws/issues/11666
+					//lintignore:AWSAT001 // Reference: https://github.com/nij4t/terraform-provider-aws/issues/11666
 					resource.TestMatchResourceAttr(resourceName, "cloudfront_distribution_arn", regexp.MustCompile(`[a-z0-9]+.cloudfront.net$`)),
 					resource.TestCheckResourceAttrPair(resourceName, "domain", acmCertificateResourceName, "domain_name"),
 					resource.TestMatchResourceAttr(resourceName, "s3_bucket", regexp.MustCompile(`^.+$`)),

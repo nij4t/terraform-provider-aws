@@ -15,10 +15,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func ResourceEndpoint() *schema.Resource {
@@ -522,7 +522,7 @@ func resourceEndpointCreate(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	// Send ExtraConnectionAttributes in the API request for all resource types
-	// per https://github.com/hashicorp/terraform-provider-aws/issues/8009
+	// per https://github.com/nij4t/terraform-provider-aws/issues/8009
 	if v, ok := d.GetOk("extra_connection_attributes"); ok {
 		request.ExtraConnectionAttributes = aws.String(v.(string))
 	}

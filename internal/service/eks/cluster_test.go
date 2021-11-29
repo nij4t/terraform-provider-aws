@@ -12,10 +12,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfeks "github.com/hashicorp/terraform-provider-aws/internal/service/eks"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfeks "github.com/nij4t/terraform-provider-aws/internal/service/eks"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 func TestAccEKSCluster_basic(t *testing.T) {
@@ -158,7 +158,7 @@ func TestAccEKSCluster_Encryption_update(t *testing.T) {
 	})
 }
 
-// https://github.com/hashicorp/terraform-provider-aws/issues/19968.
+// https://github.com/nij4t/terraform-provider-aws/issues/19968.
 func TestAccEKSCluster_Encryption_versionUpdate(t *testing.T) {
 	var cluster1, cluster2 eks.Cluster
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)

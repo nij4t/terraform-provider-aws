@@ -11,8 +11,8 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 const (
@@ -72,7 +72,7 @@ func ResourceGlobalReplicationGroup() *schema.Resource {
 			// `engine_version` cannot be used for returning the version because, starting with Redis 6,
 			// version configuration is major-version-only: `engine_version = "6.x"`, while `engine_version_actual`
 			// will be e.g. `6.0.5`
-			// See also https://github.com/hashicorp/terraform-provider-aws/issues/15625
+			// See also https://github.com/nij4t/terraform-provider-aws/issues/15625
 			"engine_version_actual": {
 				Type:     schema.TypeString,
 				Computed: true,

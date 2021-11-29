@@ -12,8 +12,8 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
 )
 
 func TestAccACMCertificate_emailValidation(t *testing.T) {
@@ -155,7 +155,7 @@ func TestAccACMCertificate_privateCert(t *testing.T) {
 }
 
 // TestAccACMCertificate_Root_trailingPeriod updated in 3.0 to account for domain_name plan-time validation
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/13510
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/13510
 func TestAccACMCertificate_Root_trailingPeriod(t *testing.T) {
 	rootDomain := acctest.ACMCertificateDomainFromEnv(t)
 	domain := fmt.Sprintf("%s.", rootDomain)
@@ -585,7 +585,7 @@ func TestAccACMCertificate_Imported_domainName(t *testing.T) {
 }
 
 //lintignore:AT002
-func TestAccACMCertificate_Imported_ipAddress(t *testing.T) { // Reference: https://github.com/hashicorp/terraform-provider-aws/issues/7103
+func TestAccACMCertificate_Imported_ipAddress(t *testing.T) { // Reference: https://github.com/nij4t/terraform-provider-aws/issues/7103
 	resourceName := "aws_acm_certificate.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -613,7 +613,7 @@ func TestAccACMCertificate_Imported_ipAddress(t *testing.T) { // Reference: http
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/15055
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/15055
 func TestAccACMCertificate_PrivateKey_tags(t *testing.T) {
 	resourceName := "aws_acm_certificate.test"
 

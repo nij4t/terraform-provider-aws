@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
 )
 
 func DataSourcePartition() *schema.Resource {

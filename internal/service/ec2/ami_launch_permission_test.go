@@ -9,9 +9,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfec2 "github.com/nij4t/terraform-provider-aws/internal/service/ec2"
 )
 
 func TestAccEC2AMILaunchPermission_basic(t *testing.T) {
@@ -62,7 +62,7 @@ func TestAccEC2AMILaunchPermission_Disappears_launchPermission(t *testing.T) {
 	})
 }
 
-// Bug reference: https://github.com/hashicorp/terraform-provider-aws/issues/6222
+// Bug reference: https://github.com/nij4t/terraform-provider-aws/issues/6222
 // Images with <group>all</group> will not have <userId> and can cause a panic
 func TestAccEC2AMILaunchPermission_DisappearsLaunchPermission_public(t *testing.T) {
 	resourceName := "aws_ami_launch_permission.test"

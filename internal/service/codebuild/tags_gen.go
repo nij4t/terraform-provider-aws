@@ -4,7 +4,7 @@ package codebuild
 import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/codebuild"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
 )
 
 // []*SERVICE.Tag handling

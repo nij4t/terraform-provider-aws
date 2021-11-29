@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func validPrincipal(v interface{}, k string) (ws []string, errors []error) {

@@ -4,7 +4,7 @@ package iam
 import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/iam"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
 )
 
 // []*SERVICE.Tag handling

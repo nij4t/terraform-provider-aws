@@ -11,9 +11,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func ResourceImageRecipe() *schema.Resource {
@@ -99,7 +99,7 @@ func ResourceImageRecipe() *schema.Resource {
 										Type:     schema.TypeString,
 										Optional: true,
 										ForceNew: true,
-										// https://github.com/hashicorp/terraform-provider-aws/issues/17274.
+										// https://github.com/nij4t/terraform-provider-aws/issues/17274.
 										ValidateFunc: validation.StringInSlice(append(imagebuilder.EbsVolumeType_Values(), EBSVolumeTypeGP3), false),
 									},
 								},

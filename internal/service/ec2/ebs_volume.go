@@ -15,10 +15,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func ResourceEBSVolume() *schema.Resource {
@@ -406,7 +406,7 @@ func resourceEBSVolumeCustomizeDiff(_ context.Context, diff *schema.ResourceDiff
 		// This parameter is not supported for gp2, st1, sc1, or standard volumes.
 		// Hard validation in place to return an error if IOPs are provided
 		// for an unsupported storage type.
-		// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/12667
+		// Reference: https://github.com/nij4t/terraform-provider-aws/issues/12667
 		switch volumeType {
 		case ec2.VolumeTypeIo1, ec2.VolumeTypeIo2:
 			if iops == 0 {

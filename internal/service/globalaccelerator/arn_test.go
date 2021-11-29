@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"testing"
 
-	tfglobalaccelerator "github.com/hashicorp/terraform-provider-aws/internal/service/globalaccelerator"
+	tfglobalaccelerator "github.com/nij4t/terraform-provider-aws/internal/service/globalaccelerator"
 )
 
 func TestEndpointGroupARNToListenerARN(t *testing.T) {

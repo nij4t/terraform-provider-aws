@@ -11,9 +11,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfec2 "github.com/nij4t/terraform-provider-aws/internal/service/ec2"
 )
 
 // add sweeper to delete known test vpcs
@@ -367,7 +367,7 @@ func TestAccEC2VPC_DefaultTagsProviderAndResource_duplicateTag(t *testing.T) {
 // attributes are correctly determined when the provider-level default_tags block
 // is left unused and resource tags (merged with local.tags) are only known at apply time,
 // with additional lifecycle ignore_changes attributes, thereby eliminating "Inconsistent final plan" errors
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/18366
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/18366
 func TestAccEC2VPC_DynamicResourceTagsMergedWithLocals_ignoreChanges(t *testing.T) {
 	var providers []*schema.Provider
 	var vpc ec2.Vpc
@@ -423,7 +423,7 @@ func TestAccEC2VPC_DynamicResourceTagsMergedWithLocals_ignoreChanges(t *testing.
 // attributes are correctly determined when the provider-level default_tags block
 // is left unused and resource tags are only known at apply time,
 // with additional lifecycle ignore_changes attributes, thereby eliminating "Inconsistent final plan" errors
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/18366
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/18366
 func TestAccEC2VPC_DynamicResourceTags_ignoreChanges(t *testing.T) {
 	var providers []*schema.Provider
 	var vpc ec2.Vpc

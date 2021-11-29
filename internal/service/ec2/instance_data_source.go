@@ -11,10 +11,10 @@ import (
 	"github.com/aws/aws-sdk-go/service/ec2"
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/create"
-	tfiam "github.com/hashicorp/terraform-provider-aws/internal/service/iam"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/create"
+	tfiam "github.com/nij4t/terraform-provider-aws/internal/service/iam"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
 )
 
 func DataSourceInstance() *schema.Resource {
@@ -575,13 +575,13 @@ func instanceDescriptionAttributes(d *schema.ResourceData, instance *ec2.Instanc
 	var creditSpecifications []map[string]interface{}
 
 	// AWS Standard will return InstanceCreditSpecification.NotSupported errors for EC2 Instance IDs outside T2 and T3 instance types
-	// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/8055
+	// Reference: https://github.com/nij4t/terraform-provider-aws/issues/8055
 	if strings.HasPrefix(aws.StringValue(instance.InstanceType), "t2") || strings.HasPrefix(aws.StringValue(instance.InstanceType), "t3") {
 		var err error
 		creditSpecifications, err = getCreditSpecifications(conn, d.Id())
 
 		// Ignore UnsupportedOperation errors for AWS China and GovCloud (US)
-		// Reference: https://github.com/hashicorp/terraform-provider-aws/pull/4362
+		// Reference: https://github.com/nij4t/terraform-provider-aws/pull/4362
 		if err != nil && !tfawserr.ErrMessageContains(err, "UnsupportedOperation", "") {
 			return fmt.Errorf("error getting EC2 Instance (%s) Credit Specifications: %w", d.Id(), err)
 		}

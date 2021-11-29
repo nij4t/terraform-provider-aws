@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"testing"
 
-	tfiam "github.com/hashicorp/terraform-provider-aws/internal/service/iam"
+	tfiam "github.com/nij4t/terraform-provider-aws/internal/service/iam"
 )
 
 func TestInstanceProfileARNToName(t *testing.T) {

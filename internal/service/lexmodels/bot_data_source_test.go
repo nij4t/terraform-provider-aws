@@ -6,7 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/lexmodelbuildingservice"
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
 )
 
 func TestAccLexModelsBotDataSource_basic(t *testing.T) {
@@ -80,7 +80,7 @@ func testAccBotDataSource_withVersion(t *testing.T) {
 					resource.TestCheckResourceAttrPair(dataSourceName, "failure_reason", resourceName, "failure_reason"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "idle_session_ttl_in_seconds", resourceName, "idle_session_ttl_in_seconds"),
 					//Removed due to race condition when bots build/read/not_ready. Modified the bot status to read true status:
-					//https://github.com/hashicorp/terraform-provider-aws/issues/21107
+					//https://github.com/nij4t/terraform-provider-aws/issues/21107
 					//resource.TestCheckResourceAttrPair(dataSourceName, "created_date", resourceName, "created_date"),
 					//resource.TestCheckResourceAttrPair(dataSourceName, "last_updated_date", resourceName, "last_updated_date"),
 					//resource.TestCheckResourceAttrPair(dataSourceName, "status", resourceName, "status"),

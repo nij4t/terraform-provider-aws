@@ -10,14 +10,14 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfconfig "github.com/hashicorp/terraform-provider-aws/internal/service/configservice"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfconfig "github.com/nij4t/terraform-provider-aws/internal/service/configservice"
 )
 
 func TestAccConfigServiceConfigurationAggregator_account(t *testing.T) {
 	var ca configservice.ConfigurationAggregator
-	//Name is upper case on purpose to test https://github.com/hashicorp/terraform-provider-aws/issues/8432
+	//Name is upper case on purpose to test https://github.com/nij4t/terraform-provider-aws/issues/8432
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
 	resourceName := "aws_config_configuration_aggregator.test"
 

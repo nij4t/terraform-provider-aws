@@ -6,8 +6,8 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/kms"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfkms "github.com/hashicorp/terraform-provider-aws/internal/service/kms"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	tfkms "github.com/nij4t/terraform-provider-aws/internal/service/kms"
 )
 
 func TestAccKMSSecretDataSource_removed(t *testing.T) {

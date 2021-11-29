@@ -10,10 +10,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfeks "github.com/hashicorp/terraform-provider-aws/internal/service/eks"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfeks "github.com/nij4t/terraform-provider-aws/internal/service/eks"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 func TestAccEKSFargateProfile_basic(t *testing.T) {
@@ -273,7 +273,7 @@ func testAccPreCheckFargateProfile(t *testing.T) {
 The allowed regions are hardcoded in the acceptance testing since dynamically determining the
 functionality requires creating and destroying a real EKS Cluster, which is a lengthy process.
 If this check is out of date, please create an issue in the Terraform AWS Provider
-repository (https://github.com/hashicorp/terraform-provider-aws) or submit a PR to update the
+repository (https://github.com/nij4t/terraform-provider-aws) or submit a PR to update the
 check itself (testAccPreCheckFargateProfile).
 
 For the most up to date supported region information, see the EKS User Guide:

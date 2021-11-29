@@ -15,11 +15,11 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfiam "github.com/hashicorp/terraform-provider-aws/internal/service/iam"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfiam "github.com/nij4t/terraform-provider-aws/internal/service/iam"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func ResourceSpotInstanceRequest() *schema.Resource {
@@ -141,7 +141,7 @@ func ResourceSpotInstanceRequest() *schema.Resource {
 			// This function exists to apply a default value to `instance_interruption_behavior` while
 			// accounting for the deprecated parameter `instance_interruption_behaviour`. It can be removed
 			// in favor of setting a `Default` on the parameter once `instance_interruption_behaviour` is removed.
-			// https://github.com/hashicorp/terraform-provider-aws/issues/20101
+			// https://github.com/nij4t/terraform-provider-aws/issues/20101
 			func(_ context.Context, diff *schema.ResourceDiff, meta interface{}) error {
 				if v, ok := diff.GetOk("instance_interruption_behavior"); ok && v != "" {
 					return nil

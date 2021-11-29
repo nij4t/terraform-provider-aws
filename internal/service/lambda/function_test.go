@@ -17,9 +17,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tflambda "github.com/hashicorp/terraform-provider-aws/internal/service/lambda"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tflambda "github.com/nij4t/terraform-provider-aws/internal/service/lambda"
 )
 
 func init() {
@@ -1174,7 +1174,7 @@ func TestAccLambdaFunction_tracing(t *testing.T) {
 // This test is to verify the existing behavior in the Lambda API where the KMS Key ARN
 // is not returned if environment variables are not in use. If the API begins saving this
 // value and the kms_key_arn check begins failing, the documentation should be updated.
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/6366
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/6366
 func TestAccLambdaFunction_KMSKeyARN_noEnvironmentVariables(t *testing.T) {
 	var function1 lambda.GetFunctionOutput
 
@@ -1451,7 +1451,7 @@ func TestAccLambdaFunction_VPC_withInvocation(t *testing.T) {
 	})
 }
 
-// See https://github.com/hashicorp/terraform-provider-aws/issues/17385
+// See https://github.com/nij4t/terraform-provider-aws/issues/17385
 // When the vpc config doesn't change the version shouldn't change
 func TestAccLambdaFunction_VPCPublishNo_changes(t *testing.T) {
 	var conf lambda.GetFunctionOutput
@@ -1492,7 +1492,7 @@ func TestAccLambdaFunction_VPCPublishNo_changes(t *testing.T) {
 	})
 }
 
-// See https://github.com/hashicorp/terraform-provider-aws/issues/17385
+// See https://github.com/nij4t/terraform-provider-aws/issues/17385
 // When the vpc config changes the version should change
 func TestAccLambdaFunction_VPCPublishHas_changes(t *testing.T) {
 	var conf lambda.GetFunctionOutput
@@ -1535,7 +1535,7 @@ func TestAccLambdaFunction_VPCPublishHas_changes(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/10044
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/10044
 func TestAccLambdaFunction_VPC_properIAMDependencies(t *testing.T) {
 	var function lambda.GetFunctionOutput
 

@@ -27,10 +27,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/provider"
-	tforganizations "github.com/hashicorp/terraform-provider-aws/internal/service/organizations"
-	tfsts "github.com/hashicorp/terraform-provider-aws/internal/service/sts"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/provider"
+	tforganizations "github.com/nij4t/terraform-provider-aws/internal/service/organizations"
+	tfsts "github.com/nij4t/terraform-provider-aws/internal/service/sts"
 )
 
 const (

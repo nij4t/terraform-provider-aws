@@ -281,8 +281,8 @@ import (
 	awsbase "github.com/hashicorp/aws-sdk-go-base"
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/logging"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/version"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/version"
 )
 
 const (
@@ -1751,7 +1751,7 @@ func (c *Config) Client() (interface{}, error) {
 		}
 	})
 
-	// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/17996
+	// Reference: https://github.com/nij4t/terraform-provider-aws/issues/17996
 	client.SecurityHubConn.Handlers.Retry.PushBack(func(r *request.Request) {
 		switch r.Operation.Name {
 		case "EnableOrganizationAdminAccount":
@@ -1761,7 +1761,7 @@ func (c *Config) Client() (interface{}, error) {
 		}
 	})
 
-	// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/19215
+	// Reference: https://github.com/nij4t/terraform-provider-aws/issues/19215
 	client.SSOAdminConn.Handlers.Retry.PushBack(func(r *request.Request) {
 		if r.Operation.Name == "AttachManagedPolicyToPermissionSet" || r.Operation.Name == "DetachManagedPolicyFromPermissionSet" {
 			if tfawserr.ErrCodeEquals(r.Error, ssoadmin.ErrCodeConflictException) {

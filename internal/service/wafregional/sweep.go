@@ -13,9 +13,9 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/go-multierror"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfwaf "github.com/hashicorp/terraform-provider-aws/internal/service/waf"
-	"github.com/hashicorp/terraform-provider-aws/internal/sweep"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfwaf "github.com/nij4t/terraform-provider-aws/internal/service/waf"
+	"github.com/nij4t/terraform-provider-aws/internal/sweep"
 )
 
 func init() {

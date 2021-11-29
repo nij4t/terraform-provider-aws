@@ -80,7 +80,7 @@ func TestFlattenParameters(t *testing.T) {
 // TestExpandRdsClusterScalingConfiguration_serverless removed in v3.0.0
 // as all engine_modes are treated equal when expanding scaling_configuration
 // and an override of min_capacity is no longer needed
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/11698
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/11698
 func TestExpandClusterScalingConfiguration_basic(t *testing.T) {
 	type testCase struct {
 		EngineMode string

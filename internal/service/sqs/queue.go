@@ -15,11 +15,11 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/create"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/create"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 var (
@@ -288,7 +288,7 @@ func resourceQueueRead(d *schema.ResourceData, meta interface{}) error {
 		return err
 	}
 
-	// Backwards compatibility: https://github.com/hashicorp/terraform-provider-aws/issues/19786.
+	// Backwards compatibility: https://github.com/nij4t/terraform-provider-aws/issues/19786.
 	if d.Get("kms_data_key_reuse_period_seconds").(int) == 0 {
 		d.Set("kms_data_key_reuse_period_seconds", DefaultQueueKMSDataKeyReusePeriodSeconds)
 	}

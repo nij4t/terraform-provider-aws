@@ -3,7 +3,7 @@ package worklink
 import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/worklink"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
+	"github.com/nij4t/terraform-provider-aws/internal/flex"
 )
 
 func flattenIdentityProviderConfigResponse(c *worklink.DescribeIdentityProviderConfigurationOutput) []map[string]interface{} {

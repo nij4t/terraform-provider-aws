@@ -10,9 +10,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfssm "github.com/hashicorp/terraform-provider-aws/internal/service/ssm"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfssm "github.com/nij4t/terraform-provider-aws/internal/service/ssm"
 )
 
 func TestAccSSMParameter_basic(t *testing.T) {
@@ -242,7 +242,7 @@ func TestAccSSMParameter_overwrite(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/18550
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/18550
 func TestAccSSMParameter_overwriteWithTags(t *testing.T) {
 	var param ssm.Parameter
 	rName := fmt.Sprintf("%s_%s", t.Name(), sdkacctest.RandString(10))
@@ -272,7 +272,7 @@ func TestAccSSMParameter_overwriteWithTags(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/18550
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/18550
 func TestAccSSMParameter_noOverwriteWithTags(t *testing.T) {
 	var param ssm.Parameter
 	rName := fmt.Sprintf("%s_%s", t.Name(), sdkacctest.RandString(10))
@@ -302,7 +302,7 @@ func TestAccSSMParameter_noOverwriteWithTags(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/18550
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/18550
 func TestAccSSMParameter_updateToOverwriteWithTags(t *testing.T) {
 	var param ssm.Parameter
 	rName := fmt.Sprintf("%s_%s", t.Name(), sdkacctest.RandString(10))

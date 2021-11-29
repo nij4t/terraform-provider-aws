@@ -9,9 +9,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfstoragegateway "github.com/hashicorp/terraform-provider-aws/internal/service/storagegateway"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfstoragegateway "github.com/nij4t/terraform-provider-aws/internal/service/storagegateway"
 )
 
 func TestDecodeStorageGatewayUploadBufferID(t *testing.T) {
@@ -102,7 +102,7 @@ func TestAccStorageGatewayUploadBuffer_basic(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/17809
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/17809
 func TestAccStorageGatewayUploadBuffer_diskPath(t *testing.T) {
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
 	resourceName := "aws_storagegateway_upload_buffer.test"

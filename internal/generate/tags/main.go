@@ -245,7 +245,7 @@ import (
 	{{- end }}
 
 	"github.com/aws/aws-sdk-go/aws"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
 	{{- if .AWSService }}
 	"github.com/aws/aws-sdk-go/service/{{ .AWSService }}"
 	{{- if ne .AWSService .TagPackage }}
@@ -260,7 +260,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	{{- end }}
 	{{- if .TfResourcePkg }}
-    "github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+    "github.com/nij4t/terraform-provider-aws/internal/tfresource"
 	{{- end }}
 )
 

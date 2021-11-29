@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	tfevents "github.com/hashicorp/terraform-provider-aws/internal/service/events"
+	tfevents "github.com/nij4t/terraform-provider-aws/internal/service/events"
 )
 
 func testResourceTargetStateDataV0() map[string]interface{} {

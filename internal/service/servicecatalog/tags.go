@@ -8,7 +8,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/servicecatalog"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
 )
 
 // Custom Service Catalog tag service update functions using the same format as generated code.

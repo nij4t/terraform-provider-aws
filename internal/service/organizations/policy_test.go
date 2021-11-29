@@ -11,9 +11,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tforganizations "github.com/hashicorp/terraform-provider-aws/internal/service/organizations"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tforganizations "github.com/nij4t/terraform-provider-aws/internal/service/organizations"
 )
 
 func testAccPolicy_basic(t *testing.T) {
@@ -56,7 +56,7 @@ func testAccPolicy_basic(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/5073
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/5073
 func testAccPolicy_concurrent(t *testing.T) {
 	var policy1, policy2, policy3, policy4, policy5 organizations.Policy
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)

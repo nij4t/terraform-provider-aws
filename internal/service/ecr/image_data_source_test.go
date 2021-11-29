@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/ecr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
 )
 
 func TestAccECRImageDataSource_ecrImage(t *testing.T) {

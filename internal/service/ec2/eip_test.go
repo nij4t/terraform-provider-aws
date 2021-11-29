@@ -15,10 +15,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfec2 "github.com/nij4t/terraform-provider-aws/internal/service/ec2"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 // This will currently skip EIPs with associations,
@@ -102,7 +102,7 @@ func TestAccEC2EIP_instance(t *testing.T) {
 }
 
 // Regression test for https://github.com/hashicorp/terraform/issues/3429 (now
-// https://github.com/hashicorp/terraform-provider-aws/issues/42)
+// https://github.com/nij4t/terraform-provider-aws/issues/42)
 func TestAccEC2EIP_Instance_reassociate(t *testing.T) {
 	instanceResourceName := "aws_instance.test"
 	resourceName := "aws_eip.test"
@@ -343,7 +343,7 @@ func TestAccEC2EIP_TagsEC2VPC_withVPCTrue(t *testing.T) {
 	})
 }
 
-// Regression test for https://github.com/hashicorp/terraform-provider-aws/issues/18756
+// Regression test for https://github.com/nij4t/terraform-provider-aws/issues/18756
 func TestAccEC2EIP_TagsEC2VPC_withoutVPCTrue(t *testing.T) {
 	var conf ec2.Address
 	resourceName := "aws_eip.test"

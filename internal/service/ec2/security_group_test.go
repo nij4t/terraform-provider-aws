@@ -16,11 +16,11 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/create"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/create"
+	tfec2 "github.com/nij4t/terraform-provider-aws/internal/service/ec2"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 // add sweeper to delete known test sgs
@@ -1052,7 +1052,7 @@ func TestAccEC2SecurityGroup_Name_generated(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/17017
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/17017
 func TestAccEC2SecurityGroup_Name_terraformPrefix(t *testing.T) {
 	var group ec2.SecurityGroup
 	resourceName := "aws_security_group.test"
@@ -1109,7 +1109,7 @@ func TestAccEC2SecurityGroup_namePrefix(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/17017
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/17017
 func TestAccEC2SecurityGroup_NamePrefix_terraformPrefix(t *testing.T) {
 	var group ec2.SecurityGroup
 	resourceName := "aws_security_group.test"

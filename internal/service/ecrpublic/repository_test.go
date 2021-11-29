@@ -11,9 +11,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfecrpublic "github.com/hashicorp/terraform-provider-aws/internal/service/ecrpublic"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfecrpublic "github.com/nij4t/terraform-provider-aws/internal/service/ecrpublic"
 )
 
 func TestAccECRPublicRepository_basic(t *testing.T) {
@@ -455,7 +455,7 @@ func testAccPreCheck(t *testing.T) {
 	// At this time, calls to DescribeRepositories returns (and by default, retries)
 	// an InternalFailure when the region is not supported i.e. not us-east-1.
 	// TODO: Remove when ECRPublic is supported across other known regions
-	// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/18047
+	// Reference: https://github.com/nij4t/terraform-provider-aws/issues/18047
 	if region := acctest.Provider.Meta().(*conns.AWSClient).Region; region != endpoints.UsEast1RegionID {
 		t.Skipf("skipping acceptance testing: region (%s) does not support ECR Public repositories", region)
 	}

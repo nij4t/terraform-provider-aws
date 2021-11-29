@@ -11,9 +11,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfec2 "github.com/nij4t/terraform-provider-aws/internal/service/ec2"
 )
 
 // testAccErrorCheckSkipEBSVolume skips EBS volume tests that have error messages indicating unsupported features
@@ -291,7 +291,7 @@ func TestAccEC2EBSVolume_noIops(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/12667
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/12667
 func TestAccEC2EBSVolume_invalidIopsForType(t *testing.T) {
 
 	resource.ParallelTest(t, resource.TestCase{

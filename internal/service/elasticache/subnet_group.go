@@ -13,11 +13,11 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/flex"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func ResourceSubnetGroup() *schema.Resource {
@@ -68,7 +68,7 @@ func ResourceSubnetGroup() *schema.Resource {
 func resourceSubnetGroupDiff(_ context.Context, diff *schema.ResourceDiff, meta interface{}) error {
 	// Reserved ElastiCache Subnet Groups with the name "default" do not support tagging;
 	// thus we must suppress the diff originating from the provider-level default_tags configuration
-	// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/19213
+	// Reference: https://github.com/nij4t/terraform-provider-aws/issues/19213
 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
 	if len(defaultTagsConfig.GetTags()) > 0 && diff.Get("name").(string) == "default" {
 		return nil

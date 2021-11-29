@@ -11,9 +11,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfworkspaces "github.com/hashicorp/terraform-provider-aws/internal/service/workspaces"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfworkspaces "github.com/nij4t/terraform-provider-aws/internal/service/workspaces"
 )
 
 func testAccWorkspace_basic(t *testing.T) {
@@ -186,7 +186,7 @@ func testAccWorkspace_workspaceProperties(t *testing.T) {
 
 // testAccWorkspace_workspaceProperties_runningModeAlwaysOn
 // validates workspace resource creation/import when workspace_properties.running_mode is set to ALWAYS_ON
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/13558
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/13558
 func testAccWorkspace_workspaceProperties_runningModeAlwaysOn(t *testing.T) {
 	var v1 workspaces.Workspace
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)

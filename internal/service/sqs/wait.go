@@ -7,7 +7,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/sqs"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 	awspolicy "github.com/jen20/awspolicyequivalence"
 )
 
@@ -39,7 +39,7 @@ func waitQueueAttributesPropagated(conn *sqs.SQS, url string, expected map[strin
 					continue
 				}
 
-				// Backwards compatibility: https://github.com/hashicorp/terraform-provider-aws/issues/19786.
+				// Backwards compatibility: https://github.com/nij4t/terraform-provider-aws/issues/19786.
 				if k == sqs.QueueAttributeNameKmsDataKeyReusePeriodSeconds && e == strconv.Itoa(DefaultQueueKMSDataKeyReusePeriodSeconds) {
 					continue
 				}

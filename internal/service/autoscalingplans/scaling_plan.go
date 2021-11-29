@@ -10,10 +10,10 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/flex"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func ResourceScalingPlan() *schema.Resource {
@@ -541,7 +541,7 @@ func expandAutoScalingPlansScalingInstructions(vScalingInstructions *schema.Set)
 		if v, ok := mScalingInstruction["service_namespace"].(string); ok && v != "" {
 			scalingInstruction.ServiceNamespace = aws.String(v)
 		} else {
-			// https://github.com/hashicorp/terraform-provider-aws/issues/17929
+			// https://github.com/nij4t/terraform-provider-aws/issues/17929
 			// https://github.com/hashicorp/terraform-plugin-sdk/issues/588
 			continue
 		}

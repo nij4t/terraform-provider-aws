@@ -11,10 +11,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfcloudformation "github.com/hashicorp/terraform-provider-aws/internal/service/cloudformation"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfcloudformation "github.com/nij4t/terraform-provider-aws/internal/service/cloudformation"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 func TestAccCloudFormationStackSet_basic(t *testing.T) {
@@ -364,7 +364,7 @@ func TestAccCloudFormationStackSet_Parameters_default(t *testing.T) {
 func TestAccCloudFormationStackSet_Parameters_noEcho(t *testing.T) {
 	acctest.Skip(t, "this resource does not currently ignore CloudFormation template parameters with the NoEcho property")
 	// Additional references:
-	//  * https://github.com/hashicorp/terraform-provider-aws/issues/55
+	//  * https://github.com/nij4t/terraform-provider-aws/issues/55
 
 	var stackSet1, stackSet2 cloudformation.StackSet
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)

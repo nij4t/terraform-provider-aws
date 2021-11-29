@@ -10,8 +10,8 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 func ResourceVPCEndpointSubnetAssociation() *schema.Resource {
@@ -58,7 +58,7 @@ func resourceVPCEndpointSubnetAssociationCreate(d *schema.ResourceData, meta int
 
 	log.Printf("[DEBUG] Creating VPC Endpoint Subnet Association: %s", input)
 
-	// See https://github.com/hashicorp/terraform-provider-aws/issues/3382.
+	// See https://github.com/nij4t/terraform-provider-aws/issues/3382.
 	// Prevent concurrent subnet association requests and delay between requests.
 	mk := "vpc_endpoint_subnet_association_" + endpointID
 	conns.GlobalMutexKV.Lock(mk)

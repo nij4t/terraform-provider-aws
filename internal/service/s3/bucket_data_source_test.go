@@ -7,8 +7,8 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfs3 "github.com/hashicorp/terraform-provider-aws/internal/service/s3"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	tfs3 "github.com/nij4t/terraform-provider-aws/internal/service/s3"
 )
 
 func TestAccS3BucketDataSource_basic(t *testing.T) {

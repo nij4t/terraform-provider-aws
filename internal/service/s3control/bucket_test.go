@@ -12,9 +12,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfs3control "github.com/hashicorp/terraform-provider-aws/internal/service/s3control"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfs3control "github.com/nij4t/terraform-provider-aws/internal/service/s3control"
 )
 
 func TestAccS3ControlBucket_basic(t *testing.T) {
@@ -71,7 +71,7 @@ func TestAccS3ControlBucket_disappears(t *testing.T) {
 }
 
 func TestAccS3ControlBucket_tags(t *testing.T) {
-	acctest.Skip(t, "S3 Control Bucket resource tagging requires additional eventual consistency handling, see also: https://github.com/hashicorp/terraform-provider-aws/issues/15572")
+	acctest.Skip(t, "S3 Control Bucket resource tagging requires additional eventual consistency handling, see also: https://github.com/nij4t/terraform-provider-aws/issues/15572")
 
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
 	resourceName := "aws_s3control_bucket.test"

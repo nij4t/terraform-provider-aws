@@ -14,10 +14,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfrds "github.com/hashicorp/terraform-provider-aws/internal/service/rds"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfrds "github.com/nij4t/terraform-provider-aws/internal/service/rds"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
 )
 
 func TestAccRDSInstance_basic(t *testing.T) {
@@ -1927,7 +1927,7 @@ func TestAccRDSInstance_SnapshotIdentifier_tags(t *testing.T) {
 }
 
 func TestAccRDSInstance_SnapshotIdentifierTags_unset(t *testing.T) {
-	acctest.Skip(t, "To be fixed: https://github.com/hashicorp/terraform-provider-aws/issues/5959")
+	acctest.Skip(t, "To be fixed: https://github.com/nij4t/terraform-provider-aws/issues/5959")
 	// --- FAIL: TestAccRDSInstance_SnapshotIdentifierTags_unset (1086.15s)
 	//     testing.go:527: Step 0 error: Check failed: Check 4/4 error: aws_db_instance.test: Attribute 'tags.%' expected "0", got "1"
 
@@ -1985,7 +1985,7 @@ func TestAccRDSInstance_SnapshotIdentifier_vpcSecurityGroupIDs(t *testing.T) {
 	})
 }
 
-// Regression reference: https://github.com/hashicorp/terraform-provider-aws/issues/5360
+// Regression reference: https://github.com/nij4t/terraform-provider-aws/issues/5360
 // This acceptance test explicitly tests when snapshot_identifier is set,
 // vpc_security_group_ids is set (which triggered the resource update function),
 // and tags is set which was missing its ARN used for tagging
@@ -2962,7 +2962,7 @@ func testAccCheckInstanceEC2ClassicExists(resourceName string, v *rds.DBInstance
 	}
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/8792
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/8792
 func TestAccRDSInstance_PerformanceInsightsEnabled_disabledToEnabled(t *testing.T) {
 	var dbInstance rds.DBInstance
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)

@@ -10,9 +10,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfglue "github.com/hashicorp/terraform-provider-aws/internal/service/glue"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfglue "github.com/nij4t/terraform-provider-aws/internal/service/glue"
 )
 
 func init() {
@@ -340,7 +340,7 @@ func TestAccGlueCatalogTable_Update_replaceValues(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/11784
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/11784
 func TestAccGlueCatalogTable_StorageDescriptor_emptyBlock(t *testing.T) {
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
 	resourceName := "aws_glue_catalog_table.test"
@@ -361,7 +361,7 @@ func TestAccGlueCatalogTable_StorageDescriptor_emptyBlock(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/11784
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/11784
 func TestAccGlueCatalogTable_StorageDescriptorSerDeInfo_emptyBlock(t *testing.T) {
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
 	resourceName := "aws_glue_catalog_table.test"
@@ -424,7 +424,7 @@ func TestAccGlueCatalogTable_StorageDescriptorSerDeInfo_updateValues(t *testing.
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/11784
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/11784
 func TestAccGlueCatalogTable_StorageDescriptorSkewedInfo_emptyBlock(t *testing.T) {
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
 	resourceName := "aws_glue_catalog_table.test"

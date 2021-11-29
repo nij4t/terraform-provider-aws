@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	tfcloudfront "github.com/hashicorp/terraform-provider-aws/internal/service/cloudfront"
+	tfcloudfront "github.com/nij4t/terraform-provider-aws/internal/service/cloudfront"
 )
 
 func TestDistributionMigrateState(t *testing.T) {

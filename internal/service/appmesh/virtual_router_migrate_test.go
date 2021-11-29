@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	tfappmesh "github.com/hashicorp/terraform-provider-aws/internal/service/appmesh"
+	tfappmesh "github.com/nij4t/terraform-provider-aws/internal/service/appmesh"
 )
 
 func TestVirtualRouterMigrateState(t *testing.T) {

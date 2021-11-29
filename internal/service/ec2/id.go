@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/create"
+	"github.com/nij4t/terraform-provider-aws/internal/create"
 )
 
 const clientVpnAuthorizationRuleIDSeparator = ","

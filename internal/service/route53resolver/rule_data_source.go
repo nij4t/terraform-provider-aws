@@ -8,8 +8,8 @@ import (
 	"github.com/aws/aws-sdk-go/service/route53resolver"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
 )
 
 func DataSourceRule() *schema.Resource {
@@ -135,7 +135,7 @@ func dataSourceRuleRead(d *schema.ResourceData, meta interface{}) error {
 	d.Set("rule_type", rule.RuleType)
 	shareStatus := aws.StringValue(rule.ShareStatus)
 	d.Set("share_status", shareStatus)
-	// https://github.com/hashicorp/terraform-provider-aws/issues/10211
+	// https://github.com/nij4t/terraform-provider-aws/issues/10211
 	if shareStatus != route53resolver.ShareStatusSharedWithMe {
 		arn := aws.StringValue(rule.Arn)
 		tags, err := ListTags(conn, arn)

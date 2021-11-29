@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/aws/aws-sdk-go/aws/endpoints"
-	tfs3 "github.com/hashicorp/terraform-provider-aws/internal/service/s3"
+	tfs3 "github.com/nij4t/terraform-provider-aws/internal/service/s3"
 )
 
 func TestHostedZoneIDForRegion(t *testing.T) {

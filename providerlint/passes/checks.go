@@ -1,15 +1,15 @@
 package passes
 
 import (
-	"github.com/hashicorp/terraform-provider-aws/providerlint/passes/AWSAT001"
-	"github.com/hashicorp/terraform-provider-aws/providerlint/passes/AWSAT002"
-	"github.com/hashicorp/terraform-provider-aws/providerlint/passes/AWSAT003"
-	"github.com/hashicorp/terraform-provider-aws/providerlint/passes/AWSAT004"
-	"github.com/hashicorp/terraform-provider-aws/providerlint/passes/AWSAT005"
-	"github.com/hashicorp/terraform-provider-aws/providerlint/passes/AWSAT006"
-	"github.com/hashicorp/terraform-provider-aws/providerlint/passes/AWSR001"
-	"github.com/hashicorp/terraform-provider-aws/providerlint/passes/AWSR002"
-	"github.com/hashicorp/terraform-provider-aws/providerlint/passes/AWSV001"
+	"github.com/nij4t/terraform-provider-aws/providerlint/passes/AWSAT001"
+	"github.com/nij4t/terraform-provider-aws/providerlint/passes/AWSAT002"
+	"github.com/nij4t/terraform-provider-aws/providerlint/passes/AWSAT003"
+	"github.com/nij4t/terraform-provider-aws/providerlint/passes/AWSAT004"
+	"github.com/nij4t/terraform-provider-aws/providerlint/passes/AWSAT005"
+	"github.com/nij4t/terraform-provider-aws/providerlint/passes/AWSAT006"
+	"github.com/nij4t/terraform-provider-aws/providerlint/passes/AWSR001"
+	"github.com/nij4t/terraform-provider-aws/providerlint/passes/AWSR002"
+	"github.com/nij4t/terraform-provider-aws/providerlint/passes/AWSV001"
 	"golang.org/x/tools/go/analysis"
 )
 

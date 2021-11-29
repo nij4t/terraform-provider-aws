@@ -12,10 +12,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfacm "github.com/hashicorp/terraform-provider-aws/internal/service/acm"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfacm "github.com/nij4t/terraform-provider-aws/internal/service/acm"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
 )
 
 // These tests need to be serialized, else resources get orphaned after "TooManyRequests" errors.

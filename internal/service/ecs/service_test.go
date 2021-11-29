@@ -14,9 +14,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfecs "github.com/hashicorp/terraform-provider-aws/internal/service/ecs"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfecs "github.com/nij4t/terraform-provider-aws/internal/service/ecs"
 )
 
 func TestAccECSService_basic(t *testing.T) {
@@ -461,7 +461,7 @@ func TestAccECSService_DeploymentValues_basic(t *testing.T) {
 	})
 }
 
-// Regression for https://github.com/hashicorp/terraform-provider-aws/issues/6315
+// Regression for https://github.com/nij4t/terraform-provider-aws/issues/6315
 func TestAccECSService_DeploymentValues_minZeroMaxOneHundred(t *testing.T) {
 	var service ecs.Service
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
@@ -690,7 +690,7 @@ func TestAccECSService_PlacementStrategy_basic(t *testing.T) {
 	})
 }
 
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/13146
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/13146
 func TestAccECSService_PlacementStrategy_missing(t *testing.T) {
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
 

@@ -13,10 +13,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tftags "github.com/nij4t/terraform-provider-aws/internal/tags"
+	"github.com/nij4t/terraform-provider-aws/internal/tfresource"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func ResourcePermissionSet() *schema.Resource {
@@ -207,7 +207,7 @@ func resourcePermissionSetUpdate(d *schema.ResourceData, meta interface{}) error
 		// The AWS SSO API requires we send the RelayState value regardless if it's unchanged
 		// else the existing Permission Set's RelayState value will be cleared;
 		// for consistency, we'll check for the "presence of" instead of "if changed" for all input fields
-		// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/17411
+		// Reference: https://github.com/nij4t/terraform-provider-aws/issues/17411
 
 		if v, ok := d.GetOk("description"); ok {
 			input.Description = aws.String(v.(string))

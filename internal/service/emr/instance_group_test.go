@@ -11,9 +11,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfemr "github.com/hashicorp/terraform-provider-aws/internal/service/emr"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfemr "github.com/nij4t/terraform-provider-aws/internal/service/emr"
 )
 
 func TestAccEMRInstanceGroup_basic(t *testing.T) {
@@ -186,7 +186,7 @@ func TestAccEMRInstanceGroup_autoScalingPolicy(t *testing.T) {
 }
 
 // Confirm we can scale down the instance count.
-// Regression test for https://github.com/hashicorp/terraform-provider-aws/issues/1264
+// Regression test for https://github.com/nij4t/terraform-provider-aws/issues/1264
 func TestAccEMRInstanceGroup_instanceCount(t *testing.T) {
 	var ig emr.InstanceGroup
 	rInt := sdkacctest.RandInt()
@@ -217,7 +217,7 @@ func TestAccEMRInstanceGroup_instanceCount(t *testing.T) {
 	})
 }
 
-// Regression test for https://github.com/hashicorp/terraform-provider-aws/issues/1355
+// Regression test for https://github.com/nij4t/terraform-provider-aws/issues/1355
 func TestAccEMRInstanceGroup_Disappears_emrCluster(t *testing.T) {
 	var cluster emr.Cluster
 	var ig emr.InstanceGroup

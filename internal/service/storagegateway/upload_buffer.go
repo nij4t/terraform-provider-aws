@@ -9,8 +9,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/arn"
 	"github.com/aws/aws-sdk-go/service/storagegateway"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	"github.com/nij4t/terraform-provider-aws/internal/verify"
 )
 
 func ResourceUploadBuffer() *schema.Resource {
@@ -56,7 +56,7 @@ func resourceUploadBufferCreate(d *schema.ResourceData, meta interface{}) error 
 		input.DiskIds = aws.StringSlice([]string{v.(string)})
 	}
 
-	// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/17809
+	// Reference: https://github.com/nij4t/terraform-provider-aws/issues/17809
 	if v, ok := d.GetOk("disk_path"); ok {
 		input.DiskIds = aws.StringSlice([]string{v.(string)})
 	}

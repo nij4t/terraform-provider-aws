@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"testing"
 
-	tfeks "github.com/hashicorp/terraform-provider-aws/internal/service/eks"
+	tfeks "github.com/nij4t/terraform-provider-aws/internal/service/eks"
 )
 
 var arnTests = []struct {

@@ -3,7 +3,7 @@ package amplify_test
 import (
 	"testing"
 
-	tfamplify "github.com/hashicorp/terraform-provider-aws/internal/service/amplify"
+	tfamplify "github.com/nij4t/terraform-provider-aws/internal/service/amplify"
 )
 
 func TestBranchParseResourceID(t *testing.T) {

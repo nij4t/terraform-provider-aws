@@ -10,9 +10,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfsagemaker "github.com/hashicorp/terraform-provider-aws/internal/service/sagemaker"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfsagemaker "github.com/nij4t/terraform-provider-aws/internal/service/sagemaker"
 )
 
 func TestAccSageMakerCodeRepository_basic(t *testing.T) {
@@ -33,7 +33,7 @@ func TestAccSageMakerCodeRepository_basic(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "code_repository_name", rName),
 					acctest.CheckResourceAttrRegionalARN(resourceName, "arn", "sagemaker", fmt.Sprintf("code-repository/%s", rName)),
 					resource.TestCheckResourceAttr(resourceName, "git_config.#", "1"),
-					resource.TestCheckResourceAttr(resourceName, "git_config.0.repository_url", "https://github.com/hashicorp/terraform-provider-aws.git"),
+					resource.TestCheckResourceAttr(resourceName, "git_config.0.repository_url", "https://github.com/nij4t/terraform-provider-aws.git"),
 					resource.TestCheckResourceAttr(resourceName, "tags.%", "0"),
 				),
 			},
@@ -64,7 +64,7 @@ func TestAccSageMakerCodeRepository_Git_branch(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "code_repository_name", rName),
 					acctest.CheckResourceAttrRegionalARN(resourceName, "arn", "sagemaker", fmt.Sprintf("code-repository/%s", rName)),
 					resource.TestCheckResourceAttr(resourceName, "git_config.#", "1"),
-					resource.TestCheckResourceAttr(resourceName, "git_config.0.repository_url", "https://github.com/hashicorp/terraform-provider-aws.git"),
+					resource.TestCheckResourceAttr(resourceName, "git_config.0.repository_url", "https://github.com/nij4t/terraform-provider-aws.git"),
 					resource.TestCheckResourceAttr(resourceName, "git_config.0.branch", "master"),
 				),
 			},
@@ -95,7 +95,7 @@ func TestAccSageMakerCodeRepository_Git_secret(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "code_repository_name", rName),
 					acctest.CheckResourceAttrRegionalARN(resourceName, "arn", "sagemaker", fmt.Sprintf("code-repository/%s", rName)),
 					resource.TestCheckResourceAttr(resourceName, "git_config.#", "1"),
-					resource.TestCheckResourceAttr(resourceName, "git_config.0.repository_url", "https://github.com/hashicorp/terraform-provider-aws.git"),
+					resource.TestCheckResourceAttr(resourceName, "git_config.0.repository_url", "https://github.com/nij4t/terraform-provider-aws.git"),
 					resource.TestCheckResourceAttrPair(resourceName, "git_config.0.secret_arn", "aws_secretsmanager_secret.test", "arn"),
 				),
 			},
@@ -111,7 +111,7 @@ func TestAccSageMakerCodeRepository_Git_secret(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "code_repository_name", rName),
 					acctest.CheckResourceAttrRegionalARN(resourceName, "arn", "sagemaker", fmt.Sprintf("code-repository/%s", rName)),
 					resource.TestCheckResourceAttr(resourceName, "git_config.#", "1"),
-					resource.TestCheckResourceAttr(resourceName, "git_config.0.repository_url", "https://github.com/hashicorp/terraform-provider-aws.git"),
+					resource.TestCheckResourceAttr(resourceName, "git_config.0.repository_url", "https://github.com/nij4t/terraform-provider-aws.git"),
 					resource.TestCheckResourceAttrPair(resourceName, "git_config.0.secret_arn", "aws_secretsmanager_secret.test2", "arn"),
 				),
 			},
@@ -243,7 +243,7 @@ resource "aws_sagemaker_code_repository" "test" {
   code_repository_name = %[1]q
 
   git_config {
-    repository_url = "https://github.com/hashicorp/terraform-provider-aws.git"
+    repository_url = "https://github.com/nij4t/terraform-provider-aws.git"
   }
 }
 `, rName)
@@ -255,7 +255,7 @@ resource "aws_sagemaker_code_repository" "test" {
   code_repository_name = %[1]q
 
   git_config {
-    repository_url = "https://github.com/hashicorp/terraform-provider-aws.git"
+    repository_url = "https://github.com/nij4t/terraform-provider-aws.git"
     branch         = "master"
   }
 }
@@ -277,7 +277,7 @@ resource "aws_sagemaker_code_repository" "test" {
   code_repository_name = %[1]q
 
   git_config {
-    repository_url = "https://github.com/hashicorp/terraform-provider-aws.git"
+    repository_url = "https://github.com/nij4t/terraform-provider-aws.git"
     secret_arn     = aws_secretsmanager_secret.test.arn
   }
 
@@ -301,7 +301,7 @@ resource "aws_sagemaker_code_repository" "test" {
   code_repository_name = %[1]q
 
   git_config {
-    repository_url = "https://github.com/hashicorp/terraform-provider-aws.git"
+    repository_url = "https://github.com/nij4t/terraform-provider-aws.git"
     secret_arn     = aws_secretsmanager_secret.test2.arn
   }
 
@@ -316,7 +316,7 @@ resource "aws_sagemaker_code_repository" "test" {
   code_repository_name = %[1]q
 
   git_config {
-    repository_url = "https://github.com/hashicorp/terraform-provider-aws.git"
+    repository_url = "https://github.com/nij4t/terraform-provider-aws.git"
   }
 
   tags = {
@@ -332,7 +332,7 @@ resource "aws_sagemaker_code_repository" "test" {
   code_repository_name = %[1]q
 
   git_config {
-    repository_url = "https://github.com/hashicorp/terraform-provider-aws.git"
+    repository_url = "https://github.com/nij4t/terraform-provider-aws.git"
   }
 
   tags = {

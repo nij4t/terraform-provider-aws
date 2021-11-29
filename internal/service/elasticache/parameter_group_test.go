@@ -12,9 +12,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfelasticache "github.com/hashicorp/terraform-provider-aws/internal/service/elasticache"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfelasticache "github.com/nij4t/terraform-provider-aws/internal/service/elasticache"
 )
 
 func TestAccElastiCacheParameterGroup_basic(t *testing.T) {
@@ -94,7 +94,7 @@ func TestAccElastiCacheParameterGroup_addParameter(t *testing.T) {
 	})
 }
 
-// Regression for https://github.com/hashicorp/terraform-provider-aws/issues/116
+// Regression for https://github.com/nij4t/terraform-provider-aws/issues/116
 func TestAccElastiCacheParameterGroup_removeAllParameters(t *testing.T) {
 	var v elasticache.CacheParameterGroup
 	resourceName := "aws_elasticache_parameter_group.test"

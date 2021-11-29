@@ -8,9 +8,9 @@ import (
 	"github.com/aws/aws-sdk-go/service/ec2"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfec2 "github.com/nij4t/terraform-provider-aws/internal/service/ec2"
 )
 
 func TestAccEC2DefaultSecurityGroup_VPC_basic(t *testing.T) {
@@ -146,7 +146,7 @@ func TestAccEC2DefaultSecurityGroup_Classic_empty(t *testing.T) {
 
 	acctest.Skip(t, "This resource does not currently clear tags when adopting the resource")
 	// Additional references:
-	//  * https://github.com/hashicorp/terraform-provider-aws/issues/14631
+	//  * https://github.com/nij4t/terraform-provider-aws/issues/14631
 
 	var group ec2.SecurityGroup
 	resourceName := "aws_default_security_group.test"

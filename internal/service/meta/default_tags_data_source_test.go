@@ -5,8 +5,8 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfmeta "github.com/hashicorp/terraform-provider-aws/internal/service/meta"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	tfmeta "github.com/nij4t/terraform-provider-aws/internal/service/meta"
 )
 
 func TestAccMetaDefaultTagsDataSource_basic(t *testing.T) {

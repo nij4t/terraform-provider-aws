@@ -12,9 +12,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfsagemaker "github.com/hashicorp/terraform-provider-aws/internal/service/sagemaker"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfsagemaker "github.com/nij4t/terraform-provider-aws/internal/service/sagemaker"
 )
 
 func TestAccSageMakerNotebookInstance_basic(t *testing.T) {
@@ -463,10 +463,10 @@ func TestAccSageMakerNotebookInstance_DefaultCode_repository(t *testing.T) {
 		CheckDestroy: testAccCheckNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
-				Config: testAccNotebookInstanceDefaultCodeRepositoryConfig(rName, "https://github.com/hashicorp/terraform-provider-aws.git"),
+				Config: testAccNotebookInstanceDefaultCodeRepositoryConfig(rName, "https://github.com/nij4t/terraform-provider-aws.git"),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckNotebookInstanceExists(resourceName, &notebook),
-					resource.TestCheckResourceAttr(resourceName, "default_code_repository", "https://github.com/hashicorp/terraform-provider-aws.git"),
+					resource.TestCheckResourceAttr(resourceName, "default_code_repository", "https://github.com/nij4t/terraform-provider-aws.git"),
 				),
 			},
 			{
@@ -482,10 +482,10 @@ func TestAccSageMakerNotebookInstance_DefaultCode_repository(t *testing.T) {
 				),
 			},
 			{
-				Config: testAccNotebookInstanceDefaultCodeRepositoryConfig(rName, "https://github.com/hashicorp/terraform-provider-aws.git"),
+				Config: testAccNotebookInstanceDefaultCodeRepositoryConfig(rName, "https://github.com/nij4t/terraform-provider-aws.git"),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckNotebookInstanceExists(resourceName, &notebook),
-					resource.TestCheckResourceAttr(resourceName, "default_code_repository", "https://github.com/hashicorp/terraform-provider-aws.git"),
+					resource.TestCheckResourceAttr(resourceName, "default_code_repository", "https://github.com/nij4t/terraform-provider-aws.git"),
 				),
 			},
 		},
@@ -503,11 +503,11 @@ func TestAccSageMakerNotebookInstance_AdditionalCode_repositories(t *testing.T) 
 		CheckDestroy: testAccCheckNotebookInstanceDestroy,
 		Steps: []resource.TestStep{
 			{
-				Config: testAccNotebookInstanceAdditionalCodeRepository1Config(rName, "https://github.com/hashicorp/terraform-provider-aws.git"),
+				Config: testAccNotebookInstanceAdditionalCodeRepository1Config(rName, "https://github.com/nij4t/terraform-provider-aws.git"),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckNotebookInstanceExists(resourceName, &notebook),
 					resource.TestCheckResourceAttr(resourceName, "additional_code_repositories.#", "1"),
-					resource.TestCheckTypeSetElemAttr(resourceName, "additional_code_repositories.*", "https://github.com/hashicorp/terraform-provider-aws.git"),
+					resource.TestCheckTypeSetElemAttr(resourceName, "additional_code_repositories.*", "https://github.com/nij4t/terraform-provider-aws.git"),
 				),
 			},
 			{
@@ -523,20 +523,20 @@ func TestAccSageMakerNotebookInstance_AdditionalCode_repositories(t *testing.T) 
 				),
 			},
 			{
-				Config: testAccNotebookInstanceAdditionalCodeRepository2Config(rName, "https://github.com/hashicorp/terraform-provider-aws.git", "https://github.com/hashicorp/terraform.git"),
+				Config: testAccNotebookInstanceAdditionalCodeRepository2Config(rName, "https://github.com/nij4t/terraform-provider-aws.git", "https://github.com/hashicorp/terraform.git"),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckNotebookInstanceExists(resourceName, &notebook),
 					resource.TestCheckResourceAttr(resourceName, "additional_code_repositories.#", "2"),
-					resource.TestCheckTypeSetElemAttr(resourceName, "additional_code_repositories.*", "https://github.com/hashicorp/terraform-provider-aws.git"),
+					resource.TestCheckTypeSetElemAttr(resourceName, "additional_code_repositories.*", "https://github.com/nij4t/terraform-provider-aws.git"),
 					resource.TestCheckTypeSetElemAttr(resourceName, "additional_code_repositories.*", "https://github.com/hashicorp/terraform.git"),
 				),
 			},
 			{
-				Config: testAccNotebookInstanceAdditionalCodeRepository1Config(rName, "https://github.com/hashicorp/terraform-provider-aws.git"),
+				Config: testAccNotebookInstanceAdditionalCodeRepository1Config(rName, "https://github.com/nij4t/terraform-provider-aws.git"),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckNotebookInstanceExists(resourceName, &notebook),
 					resource.TestCheckResourceAttr(resourceName, "additional_code_repositories.#", "1"),
-					resource.TestCheckTypeSetElemAttr(resourceName, "additional_code_repositories.*", "https://github.com/hashicorp/terraform-provider-aws.git"),
+					resource.TestCheckTypeSetElemAttr(resourceName, "additional_code_repositories.*", "https://github.com/nij4t/terraform-provider-aws.git"),
 				),
 			},
 		},
@@ -777,7 +777,7 @@ resource "aws_sagemaker_code_repository" "test" {
   code_repository_name = %[1]q
 
   git_config {
-    repository_url = "https://github.com/hashicorp/terraform-provider-aws.git"
+    repository_url = "https://github.com/nij4t/terraform-provider-aws.git"
   }
 }
 

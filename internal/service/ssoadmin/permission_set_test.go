@@ -10,9 +10,9 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfssoadmin "github.com/hashicorp/terraform-provider-aws/internal/service/ssoadmin"
+	"github.com/nij4t/terraform-provider-aws/internal/acctest"
+	"github.com/nij4t/terraform-provider-aws/internal/conns"
+	tfssoadmin "github.com/nij4t/terraform-provider-aws/internal/service/ssoadmin"
 )
 
 func TestAccSSOAdminPermissionSet_basic(t *testing.T) {
@@ -196,7 +196,7 @@ func TestAccSSOAdminPermissionSet_updateSessionDuration(t *testing.T) {
 
 // TestAccSSOAdminPermissionSet_RelayState_updateSessionDuration validates
 // the resource's unchanged values (primarily relay_state) after updating the session_duration argument
-// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/17411
+// Reference: https://github.com/nij4t/terraform-provider-aws/issues/17411
 func TestAccSSOAdminPermissionSet_RelayState_updateSessionDuration(t *testing.T) {
 	resourceName := "aws_ssoadmin_permission_set.test"
 	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
